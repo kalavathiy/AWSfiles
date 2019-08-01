@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+  - name: launch ansible cloudformation example
+    cloudformation:
+      stack_name: "VPCR53-stack"
+      state: "present"
+      region: "us-east-1"
+      disable_rollback: true
+      template: "/root/VPC2R53.yml"
+      tags:
+        Stack: "ansible-cloudformation"
